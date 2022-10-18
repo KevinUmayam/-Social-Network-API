@@ -2,6 +2,7 @@ const { Schema, Types, model } = require("mongoose");
 
 import { isEmail } from "validator";
 
+// Schema to create user model
 const userSchema = new Schema(
   {
     username: {
@@ -38,10 +39,12 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("user", userSchema);
-
+// get total count of friends
 userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
+
+// create the User model using the UserSchema
+const User = model("user", userSchema);
 
 module.exports = User;
