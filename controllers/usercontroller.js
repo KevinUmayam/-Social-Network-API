@@ -30,7 +30,7 @@ const usersController = {
       .catch((err) => res.status(500).json(err));
   },
   // update user by id
-  updateUsers({ params, body }, res) {
+  updateUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: params.id }, body, {
       new: true,
       runValidators: true,
